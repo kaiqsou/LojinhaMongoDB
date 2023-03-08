@@ -1,4 +1,5 @@
 using LojinhaServer.Models;
+using LojinhaServer.Repositories;
 using MongoDB.Driver;
 
 namespace LojinhaServer.Extensions;
@@ -14,6 +15,7 @@ public static class ServiceExtensions
             .AllowAnyHeader());
         });
     }
+
     public static void ConfigureMongoDBSettings(this IServiceCollection services, IConfiguration config)
     {
         services.Configure<MongoDBSettings>(
@@ -26,4 +28,10 @@ public static class ServiceExtensions
             return client.GetDatabase(settings.DatabaseName);
         });
     }
+
+    public static void ConfigureProductRepository(this IServiceCollection services)
+    {
+        services.AddSingleton<IProductRepository, ProductRepository>();
+    }
+
 }
