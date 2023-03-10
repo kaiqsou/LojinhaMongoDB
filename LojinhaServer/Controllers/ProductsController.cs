@@ -22,7 +22,7 @@ namespace LojinhaServer.Controllers
         }
 
         [HttpGet]
-        [Route("(id)")]
+        [Route("{id}")]
         public async Task<IActionResult> Get(string id)
         {
             var product = await _repo.GetByIdAsync(id);

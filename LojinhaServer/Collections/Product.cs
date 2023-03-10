@@ -34,5 +34,5 @@ namespace LojinhaServer.Collections;
         public List<string> Tags { get; set; }
 
         [BsonElement("brand")]
-        public List<string> Brand { get; set; }
+        public string Brand { get; set; }
     }
